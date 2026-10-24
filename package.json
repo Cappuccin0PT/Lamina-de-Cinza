@@ -1,0 +1,30 @@
+{
+  "name": "lamina-de-cinza",
+  "productName": "Lamina de Cinza",
+  "version": "0.1.0",
+  "description": "Protótipo hack and slash em pixel art num mundo 3D",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "vendor": "node scripts/copy-vendor.js",
+    "start": "npm run vendor && electron .",
+    "dist": "npm run vendor && electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "31.7.7",
+    "electron-builder": "24.13.3",
+    "three": "0.128.0"
+  },
+  "optionalDependencies": {
+    "@fontsource/pixelify-sans": "^5.0.0"
+  },
+  "build": {
+    "appId": "pt.laminadecinza.prototipo",
+    "productName": "Lamina de Cinza",
+    "files": ["main.js", "src/**/*"],
+    "directories": { "output": "dist" },
+    "win": { "target": ["portable", "nsis"] },
+    "portable": { "artifactName": "LaminaDeCinza-${version}-portatil.exe" },
+    "nsis": { "artifactName": "LaminaDeCinza-${version}-instalador.exe", "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
